@@ -71,11 +71,18 @@
       "cardName": "res",
       "valuta": "fdg",
       "userId": "e45t"
+    },
+    {
+      "id": "d39b",
+      "cardName": "res",
+      "valuta": "fdg",
+      "userId": "2568"
     }
   ],
   "transaction": [
     {
       "userid": "e45t",
+      "cardid": "fc57",
       "id": "148",
       "koshelok": "VISA",
       "category": "AVTO",
@@ -84,6 +91,7 @@
     },
     {
       "userid": "e45t",
+      "cardid": "fc57",
       "id": "10",
       "koshelok": "VISA",
       "category": "AVTO",
@@ -121,6 +129,14 @@
       "category": "AVITO",
       "summa": "4530000",
       "when": "10:19"
+    },
+    {
+      "id": "9682",
+      "koshelok": "sf",
+      "summa": "25",
+      "category": "hg",
+      "userId": "2568",
+      "when": "10:32"
     }
   ]
 }

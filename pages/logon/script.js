@@ -1,5 +1,6 @@
-import { postAxios } from "../../libs/http";
-import { createToken } from "../../libs/utils";
+import { postAxios } from "../../libs/http.js";
+import { createToken } from "../../libs/utils.js";
+import { validateInps } from "../../libs/utils.js";
 
 let form = document.forms[0];
 
@@ -19,22 +20,15 @@ form.onsubmit = (e) => {
     });
     let token = createToken();
     let inps = document.querySelectorAll('.input');
-    inps.forEach(inp => {
-        let id = inp.getAttribute('name');
-        if (regex[id].test(inp.value)) {
-            inp.style.border = '1px solid green';
-            postAxios(`users`, { ...obj, token })
-                .then(res => {
-                    localStorage.setItem('userId', res.data.id)
-                    localStorage.setItem('token', res.data.token)
-                    window.location.replace('/')
-                })
-                .catch(error => console.error(error))
-            form.reset();
-        } else {
-            inp.style.border = '1px solid red';
-        };
-    });
+    if (validateInps(inps, regex)) {
+        postAxios(`users`, { ...obj, token })
+            .then(res => {
+                localStorage.setItem('userId', res.data.id)
+                localStorage.setItem('token', res.data.token)
+                window.location.replace('/')
+            })
+            .catch(error => console.error(error))
+    }
 };
 
 let loginBlock = document.querySelector('.loginBlock');
